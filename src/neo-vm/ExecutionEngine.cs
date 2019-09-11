@@ -67,6 +67,7 @@ namespace Neo.VM
         public ExecutionContext CallingContext => InvocationStack.Count > 1 ? InvocationStack.Peek(1) : null;
         public ExecutionContext EntryContext => InvocationStack.Peek(InvocationStack.Count - 1);
         public VMState State { get; internal protected set; } = VMState.BREAK;
+        public byte[] TransactionState = null;
 
         public ExecutionEngine(IScriptContainer container, ICrypto crypto, IScriptTable table = null, IInteropService service = null)
         {
